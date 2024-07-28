@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const createApiClient = (options: { baseUrl: string }) => {
+const createApiClient = (options: { baseUrl: string }) => {
   if (!options.baseUrl) {
     console.warn("cannot not find app baseUrl");
   }
@@ -53,4 +53,3 @@ const createWireFrameClient = () => {
 };
 
 export const wireFrameApiClient = createWireFrameClient();
-
