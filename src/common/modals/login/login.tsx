@@ -18,8 +18,9 @@ export const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} 
-    className="flex flex-col gap-y-2"
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-y-2 bg-orange-400"
     >
       <input
         {...register("email", {
@@ -29,6 +30,7 @@ export const Login = () => {
         placeholder="Email"
         className="px-4 py-2 rounded"
       />
+
       {errors.email && (
         <p className="text-red-500">{`${errors.email.message}`}</p>
       )}
@@ -45,6 +47,7 @@ export const Login = () => {
         placeholder="Password"
         className="px-4 py-2 rounded"
       />
+
       {errors.password && (
         <p className="text-red-500">{`${errors.password.message}`}</p>
       )}
@@ -62,6 +65,13 @@ export const Login = () => {
       {errors.confirmPassword && (
         <p className="text-red-500">{`${errors.confirmPassword.message}`}</p>
       )}
+
+      {/* <Button
+        disabled={isSubmitting}
+        type="submit"
+        className="bg-blue-500 disabled:bg-gray-500 py-2 rounded"
+        text={"Sign In"}
+      /> */}
 
       <button
         disabled={isSubmitting}
