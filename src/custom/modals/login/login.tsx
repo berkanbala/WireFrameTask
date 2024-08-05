@@ -8,6 +8,10 @@ export const Login = () => {
   const { auth, modals } = useAppContext();
 
   const handleCloseModal = () => modals.setLoginModalVisible(false);
+  const handleSignUp = () => {
+    modals.setLoginModalVisible(false);
+    modals.setSignUpModalVisible(true);
+  };
 
   return (
     <div className={styles.container}>
@@ -34,7 +38,7 @@ export const Login = () => {
 
           <div className={styles.login}>
             Don’t have an account?
-            <span> Sign Up</span>
+            <span onClick={handleSignUp}> Sign Up</span>
           </div>
         </form>
         <span onClick={handleCloseModal} className={styles.close}>

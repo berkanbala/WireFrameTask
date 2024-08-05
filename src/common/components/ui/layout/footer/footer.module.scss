@@ -1,15 +1,39 @@
 .container {
-  font-family: "RobotoCondensed Bold", "Trebuchet MS", Helvetica, Arial,
-    sans-serif;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-  padding: 10px;
-  color: white;
-  background-color: orange;
-  box-shadow: 0 4px 15px 0 purple;
+  color: black;
+  background-color: white;
+  border-top: 1px solid black;
+  padding: 10px 30px 40px;
+
+  .left {
+    display: flex;
+    width: 50%;
+
+    .logo {
+      font-size: 32px;
+      font-weight: 600;
+      margin-right: 25px;
+    }
+
+    .descriptionWrapper {
+      .title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  .division {
+    border: 1px solid black;
+    rotate: 90deg;
+    width: 160px;
+  }
+
+  .right {
+    margin-top: auto;
+    width: 50%;
+  }
 }

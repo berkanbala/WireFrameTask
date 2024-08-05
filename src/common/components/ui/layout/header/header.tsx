@@ -16,31 +16,23 @@ export const Header = (props: Props) => {
   };
 
   return (
-    <div className={classNames(styles.container,className)}>
-      <div className={styles.navbarsub}>
-        <div className={styles.navbarsublist}>
-          <ul>
-            <li className={styles.title}>
-              <h2>ACME</h2>
-            </li>
-          </ul>
+    <div className={classNames(styles.container, className)}>
+      <div className={styles.logo}>
+        <div className={styles.title}>ACME</div>
+      </div>
+      <div className={styles.content}>
+        <div
+          className={classNames(styles.link, styles.login)}
+          onClick={handleLogin}
+        >
+          Login
         </div>
-        <ul className={styles.itemx} style={{ marginRight: "40px" }}>
-          <li className={styles.dropdown}>
-            <div className={styles.dropbtnx}>
-              <div className={styles.link} onClick={handleLogin}>
-                Login
-              </div>
-            </div>
-          </li>
-          <li className={styles.dropdown}>
-            <div className={styles.dropbtnx}>
-              <div className={styles.link} onClick={handleSignUp}>
-                Sign Up
-              </div>
-            </div>
-          </li>
-        </ul>
+        <div
+          className={classNames(styles.link, styles.signUp)}
+          onClick={handleSignUp}
+        >
+          Sign Up
+        </div>
       </div>
     </div>
   );

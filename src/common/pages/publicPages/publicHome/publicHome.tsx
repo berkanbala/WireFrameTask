@@ -18,8 +18,9 @@ export const PublicHome = () => {
       <div className={styles.content}>
         <h2>Best Position Ever Found</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing <br />
+          elit, sed do eiusmod tempor incididunt ut labore et <br />
+          dolore magna aliqua.
         </p>
       </div>
 
