@@ -6,7 +6,7 @@ export const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<AuthGuard/>} />
+        <Route path="/*" element={<AuthGuard />} />
       </Routes>
       <ToastContainer theme="colored" />
     </Router>

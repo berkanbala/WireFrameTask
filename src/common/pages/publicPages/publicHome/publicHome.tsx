@@ -1,11 +1,14 @@
+import { useEffect } from "react";
+import { login } from "../../../services/preLogin";
+
 export const PublicHome = () => {
-  return (
-    <div>
-      <div>Best Position Ever Found</div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-    </div>
-  );
+  useEffect(() => {
+    login({
+      email: "test@test.com",
+      password: "password",
+    })
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  }, []);
+  return <div></div>;
 };

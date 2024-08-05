@@ -4,7 +4,7 @@ const AppContext = createContext({} as any);
 export const useAppContext = () => useContext(AppContext);
 
 export const AppContextProvider = ({ children }: Props) => {
-  const [user, setUser] = useState({}as any);
+  const [user, setUser] = useState({} as any);
 
   return (
     <AppContext.Provider
@@ -14,7 +14,9 @@ export const AppContextProvider = ({ children }: Props) => {
           setUser,
         },
       }}
-    ></AppContext.Provider>
+    >
+      {children}
+    </AppContext.Provider>
   );
 };
 
