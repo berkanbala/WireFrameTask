@@ -1,16 +1,27 @@
+import classNames from "classnames";
+import styles from "./button.module.scss";
+
 export const Button = (props: Props) => {
   const { type, className, text, disabled } = props;
 
   return (
-    <button type={type} className={className} disabled={disabled}>
+    <button
+      type={type}
+      className={classNames(
+        styles.container,
+        className,
+        disabled && styles.disabled
+      )}
+      disabled={disabled}
+    >
       {text}
     </button>
   );
 };
 
 interface Props {
-  type?: any;
+  type: any;
   className?: string;
-  text?: any;
-  disabled?: any;
+  text: string;
+  disabled: boolean;
 }

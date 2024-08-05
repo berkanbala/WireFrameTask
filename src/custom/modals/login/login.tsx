@@ -3,12 +3,53 @@ import { Input } from "../../../common/components/ui/input/input";
 import { useAppContext } from "../../../common/context/appContext";
 import styles from "./login.module.scss";
 import Iconx from "../../../assets/media/icons/x.png";
+import { useFormik } from "formik";
+import { getInitialValuesLogin } from "./helpers";
+import { login } from "../../../common/services/preLogin";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const Login = () => {
   const { auth, modals } = useAppContext();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const { handleSubmit, handleChange, values, resetForm } = useFormik({
+    initialValues: getInitialValuesLogin(),
+    onSubmit: async (values) => {
+      try {
+        if (values.email == "" || values.password == "") {
+          toast.error("Tüm Alanları Doldurun");
+          return;
+        }
+        setLoading(true);
+        const response = await login(values);
+        console.log(response);
+        window.localStorage.setItem("accessToken", response.accessToken);
+        window.localStorage.setItem("refreshToken", response.refreshToken);
+        auth.setUser(response.user);
+        toast.success("Başarılı bir şekilde giriş yaptınız");
+        resetForm();
+        window.location.href = "/";
+      } catch (error: any) {
+        console.warn(error);
+        toast.error(error.response.data.message);
+      } finally {
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      }
+    },
+  });
 
   const handleCloseModal = () => modals.setLoginModalVisible(false);
+
   const handleSignUp = () => {
+    if (loading) {
+      return;
+    }
+
     modals.setLoginModalVisible(false);
     modals.setSignUpModalVisible(true);
   };
@@ -17,30 +58,33 @@ export const Login = () => {
     <div className={styles.container}>
       <div className={styles.modal}>
         <div className={styles.caption}>LOG IN</div>
-        <form>
-          <div className={styles.label}>Email</div>
+        <form onSubmit={handleSubmit}>
           <Input
             type="text"
             name="email"
-            value={"email"}
+            value={values.email}
             placeholder="email"
-            onChange={() => console.log("saas")}
+            onChange={handleChange}
+            label="Email"
+            disabled={loading}
           />
-          <div className={styles.label}>Password</div>
           <Input
             type="password"
             name="password"
-            value={"password"}
+            value={values.password}
             placeholder="password"
-            onChange={() => console.log("saas")}
+            onChange={handleChange}
+            label="Password"
+            disabled={loading}
           />
-          <Button className={styles.button} type="submit" text="Login" />
-
-          <div className={styles.login}>
-            Don’t have an account?
-            <span onClick={handleSignUp}> Sign Up</span>
-          </div>
+          <Button type="submit" text="Login" disabled={loading} />
         </form>
+
+        <div className={styles.login}>
+          Don’t have an account?
+          <span onClick={handleSignUp}> Sign Up</span>
+        </div>
+
         <span onClick={handleCloseModal} className={styles.close}>
           <img src={Iconx} alt="x" />
         </span>

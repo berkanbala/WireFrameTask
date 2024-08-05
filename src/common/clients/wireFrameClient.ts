@@ -14,7 +14,7 @@ const createApiClient = (options: { baseUrl: string }) => {
       "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
       "Access-Control-Allow-Credentials": true,
       "Content-Type": "application/json",
-      Authorization: accessToken,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
 
