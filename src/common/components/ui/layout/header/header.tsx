@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./header.module.scss";
 
 export default function Header() {
@@ -13,10 +14,18 @@ export default function Header() {
         </div>
         <ul className={styles.itemx} style={{ marginRight: "40px" }}>
           <li className={styles.dropdown}>
-            <div className={styles.dropbtnx}>Login</div>
+            <div className={styles.dropbtnx}>
+              <Link className={styles.link} to="/login">
+                Login
+              </Link>
+            </div>
           </li>
           <li className={styles.dropdown}>
-            <div className={styles.dropbtnx}>Sign Up</div>
+            <div className={styles.dropbtnx}>
+              <Link className={styles.link} to="/sign-Up">
+                Sign Up
+              </Link>
+            </div>
           </li>
         </ul>
       </div>

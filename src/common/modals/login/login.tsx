@@ -1,3 +1,5 @@
+import styles from "./login.module.scss";
+
 export const Login = () => {
-  return <div>login</div>;
+  return <div className={styles.container}>login</div>;
 };
