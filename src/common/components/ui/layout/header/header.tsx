@@ -1,9 +1,22 @@
-import { Link } from "react-router-dom";
 import styles from "./header.module.scss";
+import { useAppContext } from "../../../../context/appContext";
+import classNames from "classnames";
 
-export default function Header() {
+export const Header = (props: Props) => {
+  const { className } = props;
+  const { modals } = useAppContext();
+
+  const handleLogin = () => {
+    modals.setLoginModalVisible(true);
+    modals.setSignUpModalVisible(false);
+  };
+  const handleSignUp = () => {
+    modals.setSignUpModalVisible(true);
+    modals.setLoginModalVisible(false);
+  };
+
   return (
-    <div className={styles.navbar}>
+    <div className={classNames(styles.container,className)}>
       <div className={styles.navbarsub}>
         <div className={styles.navbarsublist}>
           <ul>
@@ -15,20 +28,24 @@ export default function Header() {
         <ul className={styles.itemx} style={{ marginRight: "40px" }}>
           <li className={styles.dropdown}>
             <div className={styles.dropbtnx}>
-              <Link className={styles.link} to="/login">
+              <div className={styles.link} onClick={handleLogin}>
                 Login
-              </Link>
+              </div>
             </div>
           </li>
           <li className={styles.dropdown}>
             <div className={styles.dropbtnx}>
-              <Link className={styles.link} to="/sign-Up">
+              <div className={styles.link} onClick={handleSignUp}>
                 Sign Up
-              </Link>
+              </div>
             </div>
           </li>
         </ul>
       </div>
     </div>
   );
+};
+
+interface Props {
+  className: string;
 }

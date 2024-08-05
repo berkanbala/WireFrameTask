@@ -1,0 +1,15 @@
+.container {
+  font-family: "RobotoCondensed Bold", "Trebuchet MS", Helvetica, Arial,
+    sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background-color: orange;
+  box-shadow: 0 4px 15px 0 purple;
+}

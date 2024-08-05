@@ -1,6 +1,8 @@
+import styles from "./footer.module.scss";
+
 export default function Footer() {
   return (
-    <div>
+    <div className={styles.container}>
       <div>acme</div>
       <div>
         <div> Ready to get started?</div>
