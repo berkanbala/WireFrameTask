@@ -30,7 +30,7 @@ export const AppContextProvider = ({ children }: Props) => {
 
 interface IAppContext {
   auth: {
-    user: string;
+    user: any;
     setUser: (_val: any) => void;
   };
   modals: {

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .header {
+    height: 60px;
+  }
+
+  .content {
+    display: flex;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    // background-color: #eee;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

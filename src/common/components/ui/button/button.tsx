@@ -2,7 +2,7 @@ import classNames from "classnames";
 import styles from "./button.module.scss";
 
 export const Button = (props: Props) => {
-  const { type, className, text, disabled } = props;
+  const { type, className, text, disabled, onClick } = props;
 
   return (
     <button
@@ -13,6 +13,7 @@ export const Button = (props: Props) => {
         disabled && styles.disabled
       )}
       disabled={disabled}
+      onClick={onClick}
     >
       {text}
     </button>
@@ -24,4 +25,5 @@ interface Props {
   className?: string;
   text: string;
   disabled: boolean;
+  onClick?: any;
 }

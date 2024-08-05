@@ -1,0 +1,57 @@
+.container {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    background-color: white;
+    padding: 40px;
+    border: 1px solid grey;
+    width: 50%;
+    position: relative;
+    border-radius: 11px;
+    box-sizing: content-box;
+
+    .caption {
+      color: black;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .content {
+      text-align: center;
+
+      span {
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 30px;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px;
+      cursor: pointer;
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}
