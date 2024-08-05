@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    display: flex;
+    gap: 20px;
+    background-color: #ddd;
+    padding: 5px 0px;
+    padding-left: 30px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .jobs {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      padding: 10px;
+
+      .left {
+        display: flex;
+
+        .image {
+          width: 10%;
+          text-align: center;
+
+          img {
+            width: 30px;
+          }
+        }
+
+        .leftWrapper {
+          width: 90%;
+          flex-direction: column;
+          display: flex;
+
+          & > div {
+            margin-bottom: 10px;
+
+            &:last-child {
+              margin-bottom: 0px;
+            }
+          }
+
+          .tags {
+            display: flex;
+            gap: 20px;
+
+            .tag {
+              padding: 10px;
+              border: 2px solid black;
+              background-color: #ddd;
+            }
+          }
+        }
+      }
+
+      .right {
+      }
+    }
+  }
+}

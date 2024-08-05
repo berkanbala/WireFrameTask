@@ -3,14 +3,15 @@ import { useAppContext } from "../../../../context/appContext";
 import classNames from "classnames";
 import { useState } from "react";
 import { Sure } from "../../../../../custom/modals/sure/sure";
+import { useNavigate } from "react-router";
 
 export const Header = (props: Props) => {
+  const navigate = useNavigate();
   const { className } = props;
   const { modals, auth } = useAppContext();
   const userId = auth.user.id;
   const [sureModalVisible, setSureModalVisible] = useState(false);
 
-  console.log(auth.user);
   const handleLogin = () => {
     modals.setLoginModalVisible(true);
     modals.setSignUpModalVisible(false);
@@ -22,6 +23,8 @@ export const Header = (props: Props) => {
   };
 
   const handleSignOut = () => setSureModalVisible(true);
+
+  const handleJobList = () => navigate("/jobs");
 
   const renderContent = () => {
     if (!userId) {
@@ -45,7 +48,9 @@ export const Header = (props: Props) => {
 
     return (
       <>
-        <div className={styles.job}>Job List</div>
+        <div className={styles.job} onClick={handleJobList}>
+          Job List
+        </div>
         <div className={styles.logout} onClick={handleSignOut}>
           Logout
         </div>
