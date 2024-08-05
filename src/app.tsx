@@ -1,9 +1,10 @@
-import { Login } from "./common/modals/login/login";
+import { AppContextProvider } from "./common/context/appContext";
+import { AppRoutes } from "./routes/appRoutes";
 
 export const App = () => {
   return (
-    <div className="">
-      <Login />
-    </div>
+    <AppContextProvider>
+      <AppRoutes />
+    </AppContextProvider>
   );
 };

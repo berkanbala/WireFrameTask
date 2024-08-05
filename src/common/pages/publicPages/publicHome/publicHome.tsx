@@ -1,4 +1,4 @@
-export default function Home() {
+export const PublicHome = () => {
   return (
     <div>
       <div>Best Position Ever Found</div>
@@ -8,4 +8,4 @@ export default function Home() {
       </p>
     </div>
   );
-}
+};
