@@ -1,4 +1,5 @@
 import axios from "axios";
+import { refresh } from "../services/refresh";
 
 const createApiClient = (options: { baseUrl: string }) => {
   if (!options?.baseUrl) {
@@ -44,6 +45,7 @@ const createApiClient = (options: { baseUrl: string }) => {
         case 400:
           return Promise.reject(error);
         case 401:
+          await refresh();
           return Promise.reject(error);
         case 404:
           return Promise.reject(error);

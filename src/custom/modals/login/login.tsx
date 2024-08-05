@@ -8,12 +8,10 @@ import { getInitialValuesLogin } from "./helpers";
 import { login } from "../../../common/services/preLogin";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useNavigate } from "react-router";
 
 export const Login = () => {
   const { auth, modals } = useAppContext();
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const { handleSubmit, handleChange, values, resetForm } = useFormik({
     initialValues: getInitialValuesLogin(),

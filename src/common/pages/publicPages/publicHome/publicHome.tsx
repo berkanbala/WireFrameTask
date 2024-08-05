@@ -5,14 +5,6 @@ import styles from "./publicHome.module.scss";
 export const PublicHome = () => {
   const { modals } = useAppContext();
 
-  // useEffect(() => {
-  //   login({
-  //     email: "test@test.com",
-  //     password: "password",
-  //   })
-  //     .then((response) => console.log(response))
-  //     .catch((err) => console.log(err));
-  // }, []);
   return (
     <div className={styles.container}>
       <div className={styles.content}>
