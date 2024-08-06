@@ -25,6 +25,7 @@ export const Header = (props: Props) => {
   const handleSignOut = () => setSureModalVisible(true);
 
   const handleJobList = () => navigate("/jobs");
+  const handleHome = () => navigate("/");
 
   const renderContent = () => {
     if (!userId) {
@@ -66,7 +67,9 @@ export const Header = (props: Props) => {
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.logo}>
-        <div className={styles.title}>ACME</div>
+        <div className={styles.title} onClick={handleHome}>
+          ACME
+        </div>
       </div>
       <div className={styles.content}>{renderContent()}</div>
     </div>

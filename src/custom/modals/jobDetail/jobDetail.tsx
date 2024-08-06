@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { KeyWord } from "./keyWord";
 import { getJobById, postJobApply } from "../../../common/services/jobs";
 import { toast } from "react-toastify";
+import { Loading } from "../../../common/components/ui/loading/loading";
 
 export const JobDetail = (props: Props) => {
   const { setVisible, id } = props;
@@ -52,8 +53,9 @@ export const JobDetail = (props: Props) => {
 
   const renderContent = () => {
     if (!loading) {
-      return <div>loading</div>;
+      return <Loading />;
     }
+
     return (
       <div className={styles.content}>
         <div className={styles.contentWrapper}>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { getUserProfile } from "../common/services/user";
 import { useAppContext } from "../common/context/appContext";
+import { Loading } from "../common/components/ui/loading/loading";
 
 export const PrivateRoutesGuard = () => {
   const { auth } = useAppContext();
@@ -28,7 +29,7 @@ export const PrivateRoutesGuard = () => {
   }, []);
 
   if (!loading) {
-    return <div>loading</div>;
+    return <Loading />;
   }
 
   return <Outlet />;

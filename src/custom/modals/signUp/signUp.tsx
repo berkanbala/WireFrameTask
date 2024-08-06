@@ -8,6 +8,7 @@ import { getInitialValuesLogin } from "../login/helpers";
 import { toast } from "react-toastify";
 import { signUp } from "../../../common/services/preLogin";
 import { useState } from "react";
+import { Loading } from "../../../common/components/ui/loading/loading";
 
 export const SignUp = () => {
   const { auth, modals } = useAppContext();
@@ -36,8 +37,8 @@ export const SignUp = () => {
   const handleCloseModal = () => modals.setSignUpModalVisible(false);
 
   const handleSignIn = () => {
-    if (loading) {
-      return;
+    if (!loading) {
+      return <Loading />;
     }
 
     modals.setSignUpModalVisible(false);
