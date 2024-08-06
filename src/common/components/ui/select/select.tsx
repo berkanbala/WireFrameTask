@@ -1,6 +1,7 @@
 import { Select } from "antd";
 import styles from "./select.module.scss";
 import classNames from "classnames";
+import "./select.scss";
 
 export const UISelect = (props: Props) => {
   const {
@@ -26,7 +27,7 @@ export const UISelect = (props: Props) => {
         id={id}
         disabled={disabled}
         showSearch
-        notFoundContent={<span>Not found data</span>}
+        notFoundContent={<span>Not found</span>}
       />
     </div>
   );

@@ -18,12 +18,12 @@ export const SignUp = () => {
     onSubmit: async (values) => {
       try {
         if (values.email == "" || values.password == "") {
-          toast.error("Tüm Alanları Doldurun");
+          toast.error("Fill in all fields.");
           return;
         }
         setLoading(true);
         await signUp(values);
-        toast.success("Başarılı bir şekilde kayıt oldunuz");
+        toast.success("You have successfully registered.");
       } catch (error: any) {
         console.warn(error);
         toast.error(error.response.data.message);

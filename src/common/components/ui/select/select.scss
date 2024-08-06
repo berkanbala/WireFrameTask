@@ -1,0 +1,118 @@
+.ant-select {
+  width: 100%;
+  color: transparent;
+
+  .ant-select-selector {
+    height: 42px !important;
+    border-color: black !important;
+    padding: 0px 20px !important;
+    color: black;
+
+    &:hover {
+      border-color: black !important;
+    }
+
+    .ant-select-selection-search-input {
+      height: 40px !important;
+    }
+
+    .ant-select-selection-placeholder {
+      line-height: 38px !important;
+      color: gray;
+      font-size: 12px !important;
+      padding: 0px 10px;
+    }
+
+    .ant-select-selection-item {
+      line-height: 38px !important;
+      font-size: 12px;
+    }
+
+    .ant-select-selection-overflow-item {
+      .ant-select-selection-item {
+        margin-top: -1px;
+        margin-bottom: 0px;
+        height: 30px;
+
+        .ant-select-selection-item-content {
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
+.ant-select-selection-item-remove {
+  display: flex !important;
+}
+
+.ant-select-single {
+  height: unset !important;
+
+  .ant-select-selection-search-input {
+    padding: 0px 10px !important;
+  }
+
+  .ant-select-selection-placeholder {
+    padding: unset !important;
+  }
+}
+
+.ant-select-arrow-loading {
+  color: pink !important;
+  font-size: 20px !important;
+}
+
+.ant-select-item {
+  .ant-select-item-option-content {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.ant-space-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 12px !important;
+
+  img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.ant-select-disabled {
+  .ant-select-selector {
+    background: white !important;
+    opacity: 0.6 !important;
+  }
+
+  .ant-select-arrow {
+    opacity: 0.6 !important;
+  }
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: gray !important;
+}
+
+.ant-select-dropdown
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled)
+  .ant-select-item-option-state {
+  color: pink !important;
+}
+
+.ant-select-dropdown {
+  position: fixed; //TODO
+}
+
+@media (max-width: 524px) {
+  .ant-select-selection-item {
+    width: max-content !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    max-width: 140px !important;
+  }
+}

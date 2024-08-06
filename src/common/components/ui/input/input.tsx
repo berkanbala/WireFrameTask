@@ -11,6 +11,7 @@ export const Input = (props: Props) => {
     placeholder,
     label,
     disabled,
+    onKeyDown,
   } = props;
 
   return (
@@ -30,12 +31,14 @@ export const Input = (props: Props) => {
         value={value}
         onChange={onChange}
         disabled={disabled}
+        onKeyDown={onKeyDown}
       />
     </div>
   );
 };
 
 interface Props {
+  onKeyDown?: any;
   type: string;
   name: string;
   value: string;

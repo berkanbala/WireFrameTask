@@ -1,25 +1,63 @@
 import { Pagination } from "antd";
 import styles from "./jobs.module.scss";
 import { UISelect } from "../../../components/ui/select/select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../../../components/ui/input/input";
-import { Button } from "../../../components/ui/button/button";
-import IconBag from "../../../../assets/media/icons/bag.svg";
+import { getJobs } from "../../../services/jobs";
+import { Job } from "../../../../custom/components/job/job";
+import { optionsFilter } from "./helpers";
+import { toast } from "react-toastify";
 
 export const Jobs = () => {
-  const [optionsValue, setOptionsValue] = useState(null);
+  const [optionsValue, setOptionsValue] = useState<null | string>(null);
   const [searchValue, setSearchValue] = useState("");
-  // useEffect(() => {
-  //   const getAllJobs = async () => {
-  //     try {
-  //       const response = await getJobs({ page: 1, perPage: 10 });
-  //       console.log(response);
-  //     } catch (error) {
-  //       console.warn(error);
-  //     }
-  //   };
-  //   getAllJobs();
-  // }, []);
+  const [jobsData, setJobsData] = useState([] as any);
+  const [jobsQuery, setJobsQuery] = useState({ page: 1, perPage: 10 } as any);
+  const [jobsPagination, setJobPagination] = useState({} as any);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const getAllJobs = async () => {
+      try {
+        const response = await getJobs(jobsQuery);
+        console.log(response);
+        setJobsData(response.data);
+        setJobPagination({
+          current: response.meta.page,
+          pageSize: response.meta.perPage,
+          total: response.meta.total,
+        });
+      } catch (error) {
+        console.warn(error);
+      } finally {
+        setLoading(true);
+      }
+    };
+    getAllJobs();
+  }, [jobsQuery]);
+
+  const handleFilter = (e: any) => {
+    if (e.code == "Enter") {
+      if (!optionsValue || searchValue == "") {
+        toast.error("Fill in all fields.");
+        return;
+      }
+
+      setJobsQuery({
+        ...jobsQuery,
+        search: {
+          field: optionsValue,
+          query: searchValue,
+        },
+      });
+    }
+    setLoading(false);
+  };
+
+  if (!loading) {
+    return <div>loading</div>;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -27,8 +65,8 @@ export const Jobs = () => {
         <UISelect
           disabled={false}
           placeholder="Select a Field"
-          onChange={(value: any) => console.log(value)}
-          options={[]}
+          onChange={(value: string) => setOptionsValue(value)}
+          options={optionsFilter}
           value={optionsValue}
           className={styles.select}
         />
@@ -36,48 +74,34 @@ export const Jobs = () => {
           name="text"
           type="text"
           disabled={false}
-          onChange={(value: any) => console.log(value)}
+          onChange={(e: any) => setSearchValue(e.target.value)}
+          onKeyDown={handleFilter}
           value={searchValue}
           placeholder="Search"
         />
       </div>
       <div className={styles.content}>
-        <div className={styles.jobs}>
-          <div className={styles.left}>
-            <div className={styles.image}>
-              <img src={IconBag} alt="icon" />
-            </div>
-            <div className={styles.leftWrapper}>
-              <div className={styles.name}>Company Name - Job Name </div>
-              <div className={styles.description}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Cupiditate sed possimus asperiores neque optio quas. Aliquam
-                reiciendis autem quo totam.
-              </div>
-              <div className={styles.location}>Location: Irving</div>
-              <div className={styles.salary}>Salary: 2000$</div>
-              <div className={styles.tags}>
-                <div className={styles.tag}>ipsum</div>
-                <div className={styles.tag}>dolor</div>
-                <div className={styles.tag}>sit</div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.right}>
-            <Button
-              type="button"
-              text="Detail"
-              disabled={false}
-              onClick={() => {
-                console.log("console bas");
-              }}
-            />
-          </div>
-        </div>
+        {jobsData.map((data: any) => (
+          <Job
+            description={data.description}
+            keywords={data.keywords}
+            location={data.location}
+            name={`${data.name} - ${data.companyName}`}
+            salary={data.salary}
+            key={data.id}
+          />
+        ))}
       </div>
       <Pagination
-        defaultCurrent={6}
-        total={500}
+        {...jobsPagination}
+        onChange={(page) => {
+          setJobsQuery({
+            ...jobsQuery,
+            page,
+            perPage: 10,
+          });
+          setLoading(false);
+        }}
         className={styles.pagination}
       />
     </div>

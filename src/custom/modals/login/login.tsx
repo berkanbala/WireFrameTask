@@ -18,7 +18,7 @@ export const Login = () => {
     onSubmit: async (values) => {
       try {
         if (values.email == "" || values.password == "") {
-          toast.error("Tüm Alanları Doldurun");
+          toast.error("Fill in all fields.");
           return;
         }
         setLoading(true);
@@ -27,7 +27,7 @@ export const Login = () => {
         window.localStorage.setItem("accessToken", response.accessToken);
         window.localStorage.setItem("refreshToken", response.refreshToken);
         auth.setUser(response.user);
-        toast.success("Başarılı bir şekilde giriş yaptınız");
+        toast.success("You've made a successful entry.");
         resetForm();
         window.location.href = "/";
       } catch (error: any) {
