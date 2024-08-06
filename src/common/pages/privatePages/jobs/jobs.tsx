@@ -7,6 +7,8 @@ import { getJobs } from "../../../services/jobs";
 import { Job } from "../../../../custom/components/job/job";
 import { optionsFilter } from "./helpers";
 import { toast } from "react-toastify";
+import { JobDetail } from "../../../../custom/modals/jobDetail/jobDetail";
+import { Loading } from "../../../components/ui/loading/loading";
 
 export const Jobs = () => {
   const [optionsValue, setOptionsValue] = useState<null | string>(null);
@@ -15,6 +17,8 @@ export const Jobs = () => {
   const [jobsQuery, setJobsQuery] = useState({ page: 1, perPage: 10 } as any);
   const [jobsPagination, setJobPagination] = useState({} as any);
   const [loading, setLoading] = useState(false);
+  const [jobDetailVisible, setJobDetailVisible] = useState(false);
+  const [jobDetailId, setJobDetailId] = useState("");
 
   useEffect(() => {
     const getAllJobs = async () => {
@@ -33,6 +37,7 @@ export const Jobs = () => {
         setLoading(true);
       }
     };
+
     getAllJobs();
   }, [jobsQuery]);
 
@@ -55,7 +60,7 @@ export const Jobs = () => {
   };
 
   if (!loading) {
-    return <div>loading</div>;
+    return <Loading />;
   }
 
   return (
@@ -89,6 +94,9 @@ export const Jobs = () => {
             name={`${data.name} - ${data.companyName}`}
             salary={data.salary}
             key={data.id}
+            setId={setJobDetailId}
+            id={data.id}
+            setVisible={setJobDetailVisible}
           />
         ))}
       </div>
@@ -104,6 +112,9 @@ export const Jobs = () => {
         }}
         className={styles.pagination}
       />
+      {jobDetailVisible && (
+        <JobDetail id={jobDetailId} setVisible={setJobDetailVisible} />
+      )}
     </div>
   );
 };

@@ -4,7 +4,16 @@ import { Button } from "../../../common/components/ui/button/button";
 import { Tag } from "./tag";
 
 export const Job = (props: Props) => {
-  const { name, location, salary, description, keywords } = props;
+  const {
+    name,
+    location,
+    salary,
+    description,
+    keywords,
+    setId,
+    id,
+    setVisible,
+  } = props;
 
   return (
     <div className={styles.container}>
@@ -30,7 +39,8 @@ export const Job = (props: Props) => {
           text="Detail"
           disabled={false}
           onClick={() => {
-            console.log("console bas");
+            setVisible(true);
+            setId(id);
           }}
         />
       </div>
@@ -44,4 +54,7 @@ interface Props {
   salary: number;
   description: string;
   keywords: string[];
+  setId: (id: string) => void;
+  setVisible: (visible: boolean) => void;
+  id: string;
 }
