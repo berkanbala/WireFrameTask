@@ -30,6 +30,7 @@ export const Jobs = () => {
           onChange={(value: any) => console.log(value)}
           options={[]}
           value={optionsValue}
+          className={styles.select}
         />
         <Input
           name="text"
@@ -47,7 +48,7 @@ export const Jobs = () => {
               <img src={IconBag} alt="icon" />
             </div>
             <div className={styles.leftWrapper}>
-              <div className={styles.name}>Company Name - Job Name</div>
+              <div className={styles.name}>Company Name - Job Name </div>
               <div className={styles.description}>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Cupiditate sed possimus asperiores neque optio quas. Aliquam
@@ -74,7 +75,11 @@ export const Jobs = () => {
           </div>
         </div>
       </div>
-      <Pagination defaultCurrent={6} total={500} />
+      <Pagination
+        defaultCurrent={6}
+        total={500}
+        className={styles.pagination}
+      />
     </div>
   );
 };

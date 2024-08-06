@@ -8,12 +8,36 @@
     background-color: #ddd;
     padding: 5px 0px;
     padding-left: 30px;
+    align-items: center;
+
+    .select {
+      border: 2px solid black;
+
+      .ant-select {
+        border-color: green !important;
+        .ant-select-selector {
+          &:hover {
+            border-color: green;
+          }
+          .ant-select-selection-search {
+            input {
+            }
+          }
+        }
+      }
+    }
+
+    input {
+      border: 2px solid black;
+    }
   }
 
   .content {
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 10px;
+    border: 2px solid black;
 
     .jobs {
       display: grid;
@@ -59,7 +83,22 @@
       }
 
       .right {
+        display: flex;
+        justify-content: center;
+
+        button {
+          width: 60%;
+          height: 20%;
+          background-color: #000;
+          color: #fff;
+          cursor: pointer;
+        }
       }
     }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
   }
 }
