@@ -64,26 +64,6 @@ export const Header = (props: Props) => {
           <div>{auth.user?.email}</div>
           <img src={auth.user?.profileImage} alt="icon" />
         </div>
-        <div className={styles.languages}>
-          <input
-            type="image"
-            value="tr"
-            onClick={changeLanguage}
-            src={Icontr}
-            alt="TR"
-            className={styles.lang}
-            style={{ marginLeft: "10px" }}
-          />
-          <input
-            type="image"
-            value="en"
-            onClick={changeLanguage}
-            src={Iconen}
-            alt="EN"
-            className={styles.lang}
-            style={{ marginLeft: "10px" }}
-          />
-        </div>
 
         {sureModalVisible && <Sure setVisible={setSureModalVisible} />}
       </>
@@ -97,7 +77,27 @@ export const Header = (props: Props) => {
           ACME
         </div>
       </div>
-      <div className={styles.content}>{renderContent()}</div>
+      <div className={styles.content}>
+        {renderContent()}
+        <div className={styles.languages}>
+          <input
+            type="image"
+            value="tr"
+            onClick={changeLanguage}
+            src={Icontr}
+            alt="TR"
+            className={styles.lang}
+          />
+          <input
+            type="image"
+            value="en"
+            onClick={changeLanguage}
+            src={Iconen}
+            alt="EN"
+            className={styles.lang}
+          />
+        </div>
+      </div>
     </div>
   );
 };

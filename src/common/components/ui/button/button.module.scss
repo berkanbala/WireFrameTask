@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/variables.scss";
+
 .container {
   display: flex;
   width: 200px;
@@ -7,12 +9,12 @@
   height: 50px;
   align-items: center;
   justify-content: center;
-  border: 3px solid black;
-  background-color: #fff;
-  color: #000000;
-  -webkit-box-shadow: 3px 3px 0px 2px rgba(0, 0, 0, 0.95);
-  -moz-box-shadow: 3px 3px 0px 2px rgba(0, 0, 0, 0.95);
-  box-shadow: 3px 3px 0px 2px rgba(0, 0, 0, 0.95);
+  border: $border-10;
+  background-color: $white;
+  color: $black;
+  -webkit-box-shadow: $box-shadow-10;
+  -moz-box-shadow: $box-shadow-10;
+  box-shadow: $box-shadow-10;
 
   &:focus {
     outline: 0;

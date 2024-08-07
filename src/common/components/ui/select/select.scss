@@ -1,15 +1,17 @@
+@import "../../../../assets/styles/variables.scss";
+
 .ant-select {
   width: 100%;
   color: transparent;
 
   .ant-select-selector {
     height: 42px !important;
-    border-color: black !important;
+    border-color: $black !important;
     padding: 0px 20px !important;
-    color: black;
+    color: $black;
 
     &:hover {
-      border-color: black !important;
+      border-color: $black !important;
     }
 
     .ant-select-selection-search-input {
@@ -18,7 +20,7 @@
 
     .ant-select-selection-placeholder {
       line-height: 38px !important;
-      color: gray;
+      color: $gray;
       font-size: 12px !important;
       padding: 0px 10px;
     }
@@ -59,7 +61,7 @@
 }
 
 .ant-select-arrow-loading {
-  color: pink !important;
+  color: $pink !important;
   font-size: 20px !important;
 }
 
@@ -84,7 +86,7 @@
 
 .ant-select-disabled {
   .ant-select-selector {
-    background: white !important;
+    background: $white !important;
     opacity: 0.6 !important;
   }
 
@@ -94,17 +96,17 @@
 }
 
 .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
-  background-color: gray !important;
+  background-color: $gray !important;
 }
 
 .ant-select-dropdown
   .ant-select-item-option-selected:not(.ant-select-item-option-disabled)
   .ant-select-item-option-state {
-  color: pink !important;
+  color: $pink !important;
 }
 
 .ant-select-dropdown {
-  position: fixed; //TODO
+  position: fixed;
 }
 
 @media (max-width: 524px) {

@@ -1,37 +1,10 @@
+@import "../../../assets/styles/variables.scss";
+@import "../../../assets/styles/modalsLayout.scss";
+
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(104, 104, 104, 0.437);
+  @include modalsLayout;
 
   .modal {
-    background-color: white;
-    padding: 40px;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: max-content;
-    border-radius: 20px;
-    min-height: 220px;
-    position: relative;
-    max-height: 90%;
-    overflow: auto;
-
-    .caption {
-      color: black;
-      text-align: center;
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
     .content {
       .contentWrapper {
         display: flex;
@@ -59,9 +32,9 @@
             display: flex;
 
             .tag {
-              background-color: #ddd;
+              background-color: $gray-10;
               padding: 5px;
-              border: 2px solid black;
+              border: $border-30;
               width: max-content;
               margin-right: 5px;
 
@@ -81,7 +54,7 @@
           }
 
           .text {
-            border: 2px solid black;
+            border: $border-30;
             width: 100%;
             padding: 10px;
           }
@@ -95,8 +68,8 @@
 
         button {
           &:last-child {
-            background-color: #000;
-            color: #fff;
+            background-color: $black;
+            color: $white;
           }
         }
       }

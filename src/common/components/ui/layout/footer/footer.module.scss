@@ -1,10 +1,12 @@
+@import "../../../../../assets/styles/variables.scss";
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
-  background-color: white;
-  border-top: 1px solid black;
+  color: $black;
+  background-color: $white;
+  border-top: $border-20;
   padding: 10px 30px 40px;
 
   .left {
@@ -27,7 +29,7 @@
   }
 
   .division {
-    border: 1px solid black;
+    border: $border-20;
     rotate: 90deg;
     width: 160px;
   }

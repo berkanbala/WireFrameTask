@@ -1,8 +1,10 @@
+@import "../../../assets/styles/variables.scss";
+
 .container {
   display: grid;
   grid-template-columns: 3fr 1fr;
   padding: 10px;
-  border: 2px solid black;
+  border: $border-30;
 
   .left {
     display: flex;
@@ -35,8 +37,8 @@
 
         .tag {
           padding: 10px;
-          border: 2px solid black;
-          background-color: #ddd;
+          border: $border-30;
+          background-color: $gray-10;
         }
       }
     }
@@ -48,8 +50,8 @@
 
     button {
       width: 100% !important;
-      background-color: #000;
-      color: #fff;
+      background-color: $black;
+      color: $white;
       cursor: pointer;
     }
   }

@@ -39,8 +39,8 @@ export const SignUp = () => {
   const handleCloseModal = () => modals.setSignUpModalVisible(false);
 
   const handleSignIn = () => {
-    if (!loading) {
-      return <Loading />;
+    if (loading) {
+      return;
     }
 
     modals.setSignUpModalVisible(false);
@@ -74,7 +74,7 @@ export const SignUp = () => {
         </form>
 
         <div className={styles.signUp}>
-          {t("modals.modalsaccount")}
+          {t("modals.account")}
           <span onClick={handleSignIn}> {t("header.login")} </span>
         </div>
         <span onClick={handleCloseModal} className={styles.close}>

@@ -17,9 +17,9 @@ export const Sure = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
-        <div className={styles.caption}>{t("modals.modalssure")}</div>
+        <div className={styles.caption}>{t("modals.suretitle")}</div>
         <div className={styles.content}>
-          <span>{t("modals.modalsleavepanel")}</span>
+          <span>{t("modals.suredescription")}</span>
           <div className={styles.buttons}>
             <Button
               disabled={false}

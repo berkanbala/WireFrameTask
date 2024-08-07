@@ -1,10 +1,12 @@
+@import "../../../../../assets/styles/variables.scss";
+
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 30px;
-  border-bottom: 1px solid black;
-  color: rgb(0, 0, 0);
+  border-bottom: $border-20;
+  color: $black;
 
   .logo {
     .title {
@@ -18,11 +20,11 @@
     align-items: center;
 
     .link {
-      -webkit-box-shadow: 3px 3px 0px 2px rgba(0, 0, 0, 0.95);
-      -moz-box-shadow: 3px 3px 0px 2px rgba(0, 0, 0, 0.95);
-      box-shadow: 3px 3px 0px 2px rgba(0, 0, 0, 0.95);
+      -webkit-box-shadow: $box-shadow-10;
+      -moz-box-shadow: $box-shadow-10;
+      box-shadow: $box-shadow-10;
       padding: 5px;
-      border: 2px solid #000;
+      border: $border-30;
     }
 
     .login {
@@ -31,8 +33,8 @@
     }
 
     .signUp {
-      background-color: #000;
-      color: #fff;
+      background-color: $black;
+      color: $white;
       cursor: pointer;
     }
 
@@ -67,9 +69,17 @@
   }
 
   .languages {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+
     .lang {
       height: 30px;
       width: 30px;
+
+      &:first-child {
+        margin-right: 10px;
+      }
     }
   }
 }

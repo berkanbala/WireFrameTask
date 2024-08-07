@@ -47,8 +47,8 @@ export const Login = () => {
   const handleCloseModal = () => modals.setLoginModalVisible(false);
 
   const handleSignUp = () => {
-    if (!loading) {
-      return <Loading />;
+    if (loading) {
+      return;
     }
 
     modals.setLoginModalVisible(false);

@@ -4,17 +4,17 @@
     "signup": "Kayıt Ol"
   },
   "modals": {
+    "signUp": "Kayıt Ol",
     "detail": "Detay",
     "cancel": "Vazgeç",
     "apply": "Tamam",
     "applyjob": "İş Başvurusu",
     "email": "email",
     "password": "Parola",
-    "enter": "Tamam",
-    "modalsclose": "Vazgeç",
-    "modalsapply": "Kabul",
-    "modalnewaccount": "Hesabınız Yok",
-    "modalsaccount": "Hesabınız Var",
+    "enter": "Evet",
+    "close": "Vazgeç",
+    "newaccount": "Hesabınız Yok Mu?",
+    "account": "Hesabınız Var Mı?",
     "companyname": "Şirket Adı",
     "jobname": "İs İsmi",
     "createdat": "Oluşturulma tarihi",
@@ -22,8 +22,8 @@
     "keyword": "Anahtar Kelime",
     "salary": "Maaş",
     "jobdescription": "İş Açıklaması",
-    "modalssure": "Emin Misin",
-    "modalsleavepanel": "Panelden Ayrılmak İstediğinize Emin Misiniz"
+    "suretitle": "Emin Misin?",
+    "suredescription": "Panelden Ayrılmak İstediğinize Emin Misiniz"
   },
   "footer": {
     "title": "Başlamaya Hazır",
