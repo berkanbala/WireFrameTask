@@ -18,7 +18,6 @@ const options = {
   ns: ["translations"],
   defaultNS: "translations",
   fallbackLng: "tr",
-  // lng: localStorage.getItem("language") !== "en-US" ? "en-US" : "en-US",
   lng: "en",
   keySeparator: ".",
   interpolation: {

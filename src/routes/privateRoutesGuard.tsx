@@ -17,7 +17,7 @@ export const PrivateRoutesGuard = () => {
           window.location.href = "/";
           return;
         }
-        auth.setUser(response);
+        auth.setUserInfo({ ...auth.userInfo, user: response });
       } catch (error) {
         console.warn(error);
       } finally {

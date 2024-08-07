@@ -21,9 +21,9 @@ export const Button = (props: Props) => {
 };
 
 interface Props {
-  type: any;
+  type: "submit" | "button";
   className?: string;
   text: string;
   disabled: boolean;
-  onClick?: any;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

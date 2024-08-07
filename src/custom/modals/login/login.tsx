@@ -4,7 +4,6 @@ import { Input } from "../../../common/components/ui/input/input";
 import { login } from "../../../common/services/preLogin";
 import { toast } from "react-toastify";
 import { Button } from "../../../common/components/ui/button/button";
-import { Loading } from "../../../common/components/ui/loading/loading";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { useAppContext } from "../../../common/context/appContext";
@@ -24,12 +23,12 @@ export const Login = () => {
           toast.error("Fill in all fields.");
           return;
         }
+
         setLoading(true);
         const response = await login(values);
-        console.log(response);
         window.localStorage.setItem("accessToken", response.accessToken);
         window.localStorage.setItem("refreshToken", response.refreshToken);
-        auth.setUser(response.user);
+        auth.setUserInfo(response);
         toast.success("You've made a successful entry.");
         resetForm();
         window.location.href = "/";

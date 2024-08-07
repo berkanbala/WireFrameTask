@@ -6,5 +6,5 @@ export const KeyWord = (props: Props) => {
 
 interface Props {
   className: string;
-  data: any;
+  data: string;
 }

@@ -4,12 +4,11 @@ import { Input } from "../../../common/components/ui/input/input";
 import { toast } from "react-toastify";
 import { Button } from "../../../common/components/ui/button/button";
 import { signUp } from "../../../common/services/preLogin";
-import { Loading } from "../../../common/components/ui/loading/loading";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { useAppContext } from "../../../common/context/appContext";
 import { useTranslation } from "react-i18next";
-import { getInitialValuesLogin } from "../login/helpers";
+import { getInitialValuesLogin } from "./helpers";
 
 export const SignUp = () => {
   const { modals } = useAppContext();
@@ -29,7 +28,7 @@ export const SignUp = () => {
         toast.success("You have successfully registered.");
       } catch (error: any) {
         console.warn(error);
-        toast.error(error.response.data.message);
+        toast.error(error?.response?.data?.message);
       } finally {
         setLoading(false);
       }

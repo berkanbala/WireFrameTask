@@ -7,11 +7,12 @@ import { Loading } from "../../../common/components/ui/loading/loading";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { getJobById, postJobApply } from "../../../common/services/jobs";
+import { IJobsData } from "../../../common/models/jobs";
 
 export const JobDetail = (props: Props) => {
   const { setVisible, id } = props;
   const { t } = useTranslation("translations");
-  const [data, setData] = useState({} as any);
+  const [data, setData] = useState<IJobsData>({} as IJobsData);
   const [loading, setLoading] = useState(false);
   const [submitLoading, setSubmitLoading] = useState(false);
 

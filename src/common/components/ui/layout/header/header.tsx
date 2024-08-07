@@ -14,7 +14,7 @@ export const Header = (props: Props) => {
   const { modals, auth } = useAppContext();
   const { t, i18n } = useTranslation("translations");
   const [sureModalVisible, setSureModalVisible] = useState(false);
-  const userId = auth.user.id;
+  const userId = auth.userInfo?.user?.id;
 
   const handleLogin = () => {
     modals.setLoginModalVisible(true);
@@ -61,8 +61,8 @@ export const Header = (props: Props) => {
           {t("navbar.logout")}
         </div>
         <div className={styles.user}>
-          <div>{auth.user?.email}</div>
-          <img src={auth.user?.profileImage} alt="icon" />
+          <div>{auth.userInfo?.user?.email}</div>
+          <img src={auth.userInfo?.user?.profileImage} alt="icon" />
         </div>
 
         {sureModalVisible && <Sure setVisible={setSureModalVisible} />}

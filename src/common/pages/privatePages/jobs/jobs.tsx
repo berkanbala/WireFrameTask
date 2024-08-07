@@ -10,13 +10,16 @@ import { Pagination } from "antd";
 import { optionsFilter } from "./helpers";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
+import { IJobsData, IJobsMeta } from "../../../models/jobs";
 
 export const Jobs = () => {
   const [optionsValue, setOptionsValue] = useState<null | string>(null);
   const [searchValue, setSearchValue] = useState("");
-  const [jobsData, setJobsData] = useState([] as any);
+  const [jobsData, setJobsData] = useState<IJobsData[]>([]);
   const [jobsQuery, setJobsQuery] = useState({ page: 1, perPage: 10 } as any);
-  const [jobsPagination, setJobPagination] = useState({} as any);
+  const [jobsPagination, setJobPagination] = useState<IJobsMeta>(
+    {} as IJobsMeta
+  );
   const [loading, setLoading] = useState(false);
   const [jobDetailVisible, setJobDetailVisible] = useState(false);
   const [jobDetailId, setJobDetailId] = useState("");
@@ -26,7 +29,6 @@ export const Jobs = () => {
     const getAllJobs = async () => {
       try {
         const response = await getJobs(jobsQuery);
-        console.log(response);
         setJobsData(response.data);
         setJobPagination({
           current: response.meta.page,
@@ -43,7 +45,7 @@ export const Jobs = () => {
     getAllJobs();
   }, [jobsQuery]);
 
-  const handleFilter = (e: any) => {
+  const handleFilter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.code == "Enter") {
       if (!optionsValue || searchValue == "") {
         toast.error("Fill in all fields.");
@@ -81,14 +83,14 @@ export const Jobs = () => {
           name="text"
           type="text"
           disabled={false}
-          onChange={(e: any) => setSearchValue(e.target.value)}
+          onChange={(e) => setSearchValue(e.target.value)}
           onKeyDown={handleFilter}
           value={searchValue}
           placeholder={t("navbar.search")}
         />
       </div>
       <div className={styles.content}>
-        {jobsData.map((data: any) => (
+        {jobsData.map((data: IJobsData) => (
           <Job
             description={data.description}
             keywords={data.keywords}

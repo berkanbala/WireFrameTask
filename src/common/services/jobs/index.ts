@@ -1,12 +1,13 @@
 import { wireFrameApiClient } from "../../clients/wireFrameClient";
+import { IJobs, IJobsData } from "../../models/jobs";
 
-export const getJobs = async (values: any) => {
+export const getJobs = async (values: any): Promise<IJobs> => {
   const response = await wireFrameApiClient.get("jobs", { params: values });
 
   return response.data;
 };
 
-export const getJobById = async (id: string) => {
+export const getJobById = async (id: string): Promise<IJobsData> => {
   const response = await wireFrameApiClient.get(`jobs/${id}`);
 
   return response.data;

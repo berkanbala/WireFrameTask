@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
+import { IUser } from "../models/user";
 
 const AppContext = createContext<IAppContext>({} as any);
 export const useAppContext = () => useContext(AppContext);
 
 export const AppContextProvider = ({ children }: Props) => {
-  const [user, setUser] = useState({} as any);
+  const [userInfo, setUserInfo] = useState<IUser>({} as IUser);
   const [loginModalVisible, setLoginModalVisible] = useState(false);
   const [signUpModalVisible, setSignUpModalVisible] = useState(false);
 
@@ -12,8 +13,8 @@ export const AppContextProvider = ({ children }: Props) => {
     <AppContext.Provider
       value={{
         auth: {
-          user,
-          setUser,
+          userInfo,
+          setUserInfo,
         },
         modals: {
           loginModalVisible,
@@ -30,8 +31,8 @@ export const AppContextProvider = ({ children }: Props) => {
 
 interface IAppContext {
   auth: {
-    user: any;
-    setUser: (_val: any) => void;
+    userInfo: IUser;
+    setUserInfo: (_val: any) => void;
   };
   modals: {
     loginModalVisible: boolean;

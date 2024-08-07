@@ -38,12 +38,12 @@ export const Input = (props: Props) => {
 };
 
 interface Props {
-  onKeyDown?: any;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   type: string;
   name: string;
   value: string;
-  onChange: any;
-  className?: any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
   placeholder?: string;
   label?: string;
   disabled: boolean;

@@ -5,16 +5,8 @@ import { Select } from "antd";
 import { useTranslation } from "react-i18next";
 
 export const UISelect = (props: Props) => {
-  const {
-    id,
-    label,
-    value,
-    options,
-    onChange,
-    className,
-    disabled,
-    placeholder,
-  } = props;
+  const { label, value, options, onChange, className, disabled, placeholder } =
+    props;
 
   const { t } = useTranslation("translations");
 
@@ -27,7 +19,6 @@ export const UISelect = (props: Props) => {
         onChange={onChange}
         value={value}
         options={options}
-        id={id}
         disabled={disabled}
         showSearch
         notFoundContent={<span>{t("navbar.notfound")}</span>}
@@ -37,12 +28,14 @@ export const UISelect = (props: Props) => {
 };
 
 interface Props {
-  id?: any;
   placeholder?: string;
   label?: string;
   value: any;
-  options: any;
-  onChange: any;
+  options: {
+    value: string;
+    label: string;
+  }[];
+  onChange: (value: string, option: any) => void;
   className?: string;
   disabled: boolean;
 }
