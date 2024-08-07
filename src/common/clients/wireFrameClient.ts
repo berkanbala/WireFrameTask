@@ -21,14 +21,6 @@ const createApiClient = (options: { baseUrl: string }) => {
 
   apiClient.interceptors.request.use(
     async (config: any) => {
-      // if (
-      //   accessToken &&
-      //   accessToken !== window.localStorage.getItem("accessToken")
-      // ) {
-      //   window.location.href = "/";
-      //   window.localStorage.clear();
-      // }
-
       return config;
     },
     async (error) => {

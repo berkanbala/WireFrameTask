@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
-import { getUserProfile } from "../common/services/user";
-import { useAppContext } from "../common/context/appContext";
 import { Loading } from "../common/components/ui/loading/loading";
+import { useAppContext } from "../common/context/appContext";
+import { getUserProfile } from "../common/services/user";
+import { useEffect, useState } from "react";
 
 export const PrivateRoutesGuard = () => {
   const { auth } = useAppContext();

@@ -1,14 +1,16 @@
-import { Button } from "../../../common/components/ui/button/button";
-import styles from "./jobDetail.module.scss";
 import Iconx from "../../../assets/media/icons/x.png";
-import { useEffect, useState } from "react";
-import { KeyWord } from "./keyWord";
-import { getJobById, postJobApply } from "../../../common/services/jobs";
+import styles from "./jobDetail.module.scss";
 import { toast } from "react-toastify";
+import { Button } from "../../../common/components/ui/button/button";
+import { KeyWord } from "./keyWord";
 import { Loading } from "../../../common/components/ui/loading/loading";
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import { getJobById, postJobApply } from "../../../common/services/jobs";
 
 export const JobDetail = (props: Props) => {
   const { setVisible, id } = props;
+  const { t } = useTranslation("translations");
   const [data, setData] = useState({} as any);
   const [loading, setLoading] = useState(false);
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -60,22 +62,22 @@ export const JobDetail = (props: Props) => {
       <div className={styles.content}>
         <div className={styles.contentWrapper}>
           <div>
-            <span>Company Name:</span>
+            <span>{t("modals.companyname")}:</span>
             {data.companyName}
           </div>
           <div>
-            <span>Job Name:</span> <span>{data.jobName}</span>
+            <span> {t("modals.jobname")}:</span> <span>{data.jobName}</span>
           </div>
           <div>
-            <span>Created At:</span>
+            <span>{t("modals.createdat")}:</span>
             <span>{data.createdAt}</span>
           </div>
           <div>
-            <span>Location:</span>
+            <span>{t("modals.location")}:</span>
             <span>{data.location}</span>
           </div>
           <div className={styles.keyword}>
-            <span>Keyword:</span>
+            <span>{t("modals.keyword")}:</span>
             <div className={styles.tags}>
               {data.keywords.map((keyword: string, index: number) => (
                 <KeyWord className={styles.tag} key={index} data={keyword} />
@@ -83,11 +85,11 @@ export const JobDetail = (props: Props) => {
             </div>
           </div>
           <div>
-            <span>Salary:</span>
+            <span>{t("modals.salary")}:</span>
             <span>{data.salary}</span>
           </div>
           <div className={styles.description}>
-            <span>Job Description:</span>
+            <span>{t("modals.jobdescription")}:</span>
             <div className={styles.text}>{data.description}</div>
           </div>
         </div>
@@ -96,13 +98,13 @@ export const JobDetail = (props: Props) => {
           <Button
             disabled={false}
             type="button"
-            text="Cancel"
+            text={t("modals.cancel")}
             onClick={handleCloseModal}
           />
           <Button
             disabled={submitLoading}
             type="button"
-            text="Apply"
+            text={t("modals.apply")}
             onClick={handleApply}
           />
         </div>
@@ -113,7 +115,7 @@ export const JobDetail = (props: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
-        <div className={styles.caption}>Apply Job</div>
+        <div className={styles.caption}>{t("modals.applyjob")}</div>
         {renderContent()}
         <span onClick={handleCloseModal} className={styles.close}>
           <img src={Iconx} alt="x" />

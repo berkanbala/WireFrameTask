@@ -1,17 +1,19 @@
-import { Button } from "../../../common/components/ui/button/button";
-import { Input } from "../../../common/components/ui/input/input";
-import { useAppContext } from "../../../common/context/appContext";
-import styles from "./login.module.scss";
 import Iconx from "../../../assets/media/icons/x.png";
-import { useFormik } from "formik";
-import { getInitialValuesLogin } from "./helpers";
+import styles from "./login.module.scss";
+import { Input } from "../../../common/components/ui/input/input";
 import { login } from "../../../common/services/preLogin";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { Button } from "../../../common/components/ui/button/button";
 import { Loading } from "../../../common/components/ui/loading/loading";
+import { useState } from "react";
+import { useFormik } from "formik";
+import { useAppContext } from "../../../common/context/appContext";
+import { useTranslation } from "react-i18next";
+import { getInitialValuesLogin } from "./helpers";
 
 export const Login = () => {
   const { auth, modals } = useAppContext();
+  const { t } = useTranslation("translations");
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, handleChange, values, resetForm } = useFormik({
@@ -56,13 +58,13 @@ export const Login = () => {
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
-        <div className={styles.caption}>LOG IN</div>
+        <div className={styles.caption}> {t("header.login")}</div>
         <form onSubmit={handleSubmit}>
           <Input
             type="text"
             name="email"
             value={values.email}
-            placeholder="email"
+            placeholder={t("modals.email")}
             onChange={handleChange}
             label="Email"
             disabled={loading}
@@ -71,19 +73,18 @@ export const Login = () => {
             type="password"
             name="password"
             value={values.password}
-            placeholder="password"
+            placeholder={t("modals.password")}
             onChange={handleChange}
             label="Password"
             disabled={loading}
           />
-          <Button type="submit" text="Login" disabled={loading} />
+          <Button type="submit" text={t("header.login")} disabled={loading} />
         </form>
 
         <div className={styles.login}>
-          Don’t have an account?
-          <span onClick={handleSignUp}> Sign Up</span>
+          {t("modals.newaccount")}
+          <span onClick={handleSignUp}> {t("modals.signUp")} </span>
         </div>
-
         <span onClick={handleCloseModal} className={styles.close}>
           <img src={Iconx} alt="x" />
         </span>

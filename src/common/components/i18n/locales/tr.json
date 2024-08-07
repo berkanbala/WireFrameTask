@@ -1,0 +1,47 @@
+{
+  "header": {
+    "login": "Giriş Yap",
+    "signup": "Kayıt Ol"
+  },
+  "modals": {
+    "detail": "Detay",
+    "cancel": "Vazgeç",
+    "apply": "Tamam",
+    "applyjob": "İş Başvurusu",
+    "email": "email",
+    "password": "Parola",
+    "enter": "Tamam",
+    "modalsclose": "Vazgeç",
+    "modalsapply": "Kabul",
+    "modalnewaccount": "Hesabınız Yok",
+    "modalsaccount": "Hesabınız Var",
+    "companyname": "Şirket Adı",
+    "jobname": "İs İsmi",
+    "createdat": "Oluşturulma tarihi",
+    "location": "Konumu",
+    "keyword": "Anahtar Kelime",
+    "salary": "Maaş",
+    "jobdescription": "İş Açıklaması",
+    "modalssure": "Emin Misin",
+    "modalsleavepanel": "Panelden Ayrılmak İstediğinize Emin Misiniz"
+  },
+  "footer": {
+    "title": "Başlamaya Hazır",
+    "lorem": "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur."
+  },
+  "navbar": {
+    "joblist": "İş Listesi",
+    "basicfilter": "Temel Filtre",
+    "logout": "Çıkış Yap",
+    "notfound": "Bulunamadı",
+    "search": "Ara"
+  },
+  "privatehome": {
+    "welcome": "Hoşgeldin",
+    "lorem": "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur."
+  },
+  "publichome": {
+    "bestpositioneverfound": "Şimdiye Kadar Bulunan En İyi Pozisyon",
+    "lorem": "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur."
+  }
+}

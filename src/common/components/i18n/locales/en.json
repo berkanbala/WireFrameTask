@@ -1,0 +1,48 @@
+{
+  "header": {
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "modals": {
+    "signUp": "Sign Up",
+    "detail": "Detail",
+    "cancel": "Cancel",
+    "apply": "Apply",
+    "applyjob": "Apply Job",
+    "email": "email",
+    "password": "Password",
+    "enter": "Enter",
+    "modalsclose": "Close",
+    "modalsapply": "Apply",
+    "newaccount": "Don’t have an account?",
+    "modalsaccount": "Already have an account?",
+    "companyname": "Company Name",
+    "jobname": "Job Name",
+    "createdat": "Created At",
+    "location": "Location",
+    "keyword": "Keyword",
+    "salary": "Salary",
+    "jobdescription": "Job Description",
+    "modalssure": "Are You Sure",
+    "modalsleavepanel": "Are you sure you want to leave the panel"
+  },
+  "footer": {
+    "title": "Ready to get started",
+    "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing  elit,sed do eiusmod tempor incididunt ut labore et dolore,magna aliqua. Ut enim ad minim veniam, quis nostrud,exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+  },
+  "navbar": {
+    "joblist": "Job List",
+    "basicfilter": "Basic Filter",
+    "logout": "Logout",
+    "notfound": "Not found",
+    "search": "Search"
+  },
+  "privatehome": {
+    "welcome": "Welcome",
+    "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore,magna aliqua. Ut enim ad minim veniam, quis nostrud,exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+  },
+  "publichome": {
+    "bestpositioneverfound": "Best Position Ever Found",
+    "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore,magna aliqua. Ut enim ad minim veniam, quis nostrud,exercitation ullamco laboris nisi ut aliquip ex ea commodo"
+  }
+}

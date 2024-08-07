@@ -1,7 +1,8 @@
-import { Select } from "antd";
+import "./select.scss";
 import styles from "./select.module.scss";
 import classNames from "classnames";
-import "./select.scss";
+import { Select } from "antd";
+import { useTranslation } from "react-i18next";
 
 export const UISelect = (props: Props) => {
   const {
@@ -15,6 +16,8 @@ export const UISelect = (props: Props) => {
     placeholder,
   } = props;
 
+  const { t } = useTranslation("translations");
+
   return (
     <div className={classNames(styles.container, className)}>
       {label && <div className={styles.label}>{label}</div>}
@@ -27,7 +30,7 @@ export const UISelect = (props: Props) => {
         id={id}
         disabled={disabled}
         showSearch
-        notFoundContent={<span>Not found</span>}
+        notFoundContent={<span>{t("navbar.notfound")}</span>}
       />
     </div>
   );

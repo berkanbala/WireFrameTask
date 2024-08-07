@@ -1,19 +1,17 @@
-import { useAppContext } from "../../../context/appContext";
+import styles from "./publicHome.module.scss";
 import { Login } from "../../../../custom/modals/login/login";
 import { SignUp } from "../../../../custom/modals/signUp/signUp";
-import styles from "./publicHome.module.scss";
+import { useAppContext } from "../../../context/appContext";
+import { useTranslation } from "react-i18next";
 export const PublicHome = () => {
   const { modals } = useAppContext();
+  const { t } = useTranslation("translations");
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h2>Best Position Ever Found</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing <br />
-          elit, sed do eiusmod tempor incididunt ut labore et <br />
-          dolore magna aliqua.
-        </p>
+        <h2>{t("publichome.bestpositioneverfound")}</h2>
+        <p>{t("publichome.lorem")}</p>
       </div>
 
       {modals.loginModalVisible && <Login />}

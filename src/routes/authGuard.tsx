@@ -1,12 +1,11 @@
-import { Route, Routes } from "react-router-dom";
 import { PublicRoutes } from "./publicRoutes";
-import { PrivateRoutesGuard } from "./privateRoutesGuard";
+import { Route, Routes } from "react-router-dom";
 import { PrivateRoutes } from "./privateRoutes";
+import { PrivateRoutesGuard } from "./privateRoutesGuard";
 
 export const AuthGuard = () => {
   const accessToken = window.localStorage.getItem("accessToken");
   const refreshToken = window.localStorage.getItem("refreshToken");
-
 
   if (!accessToken || !refreshToken) {
     return (

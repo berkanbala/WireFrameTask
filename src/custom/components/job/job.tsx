@@ -1,7 +1,8 @@
 import styles from "./job.module.scss";
 import IconBag from "../../../assets/media/icons/bag.svg";
-import { Button } from "../../../common/components/ui/button/button";
 import { Tag } from "./tag";
+import { Button } from "../../../common/components/ui/button/button";
+import { useTranslation } from "react-i18next";
 
 export const Job = (props: Props) => {
   const {
@@ -15,6 +16,8 @@ export const Job = (props: Props) => {
     setVisible,
   } = props;
 
+  const { t } = useTranslation("translations");
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -24,8 +27,12 @@ export const Job = (props: Props) => {
         <div className={styles.leftWrapper}>
           <div className={styles.name}>{name}</div>
           <div className={styles.description}>{description}</div>
-          <div className={styles.location}>Location: {location}</div>
-          <div className={styles.salary}>Salary: {salary} </div>
+          <div className={styles.location}>
+            {t("modals.location")}: {location}
+          </div>
+          <div className={styles.salary}>
+            {t("modals.salary")}: {salary}{" "}
+          </div>
           <div className={styles.tags}>
             {keywords.map((tag: string, index: number) => (
               <Tag key={index} tag={tag} />
@@ -36,7 +43,7 @@ export const Job = (props: Props) => {
       <div className={styles.right}>
         <Button
           type="button"
-          text="Detail"
+          text={t("modals.detail")}
           disabled={false}
           onClick={() => {
             setVisible(true);

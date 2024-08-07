@@ -1,14 +1,15 @@
-import { Pagination } from "antd";
 import styles from "./jobs.module.scss";
-import { UISelect } from "../../../components/ui/select/select";
-import { useEffect, useState } from "react";
-import { Input } from "../../../components/ui/input/input";
-import { getJobs } from "../../../services/jobs";
 import { Job } from "../../../../custom/components/job/job";
-import { optionsFilter } from "./helpers";
+import { Input } from "../../../components/ui/input/input";
 import { toast } from "react-toastify";
-import { JobDetail } from "../../../../custom/modals/jobDetail/jobDetail";
 import { Loading } from "../../../components/ui/loading/loading";
+import { getJobs } from "../../../services/jobs";
+import { UISelect } from "../../../components/ui/select/select";
+import { JobDetail } from "../../../../custom/modals/jobDetail/jobDetail";
+import { Pagination } from "antd";
+import { optionsFilter } from "./helpers";
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 export const Jobs = () => {
   const [optionsValue, setOptionsValue] = useState<null | string>(null);
@@ -19,6 +20,7 @@ export const Jobs = () => {
   const [loading, setLoading] = useState(false);
   const [jobDetailVisible, setJobDetailVisible] = useState(false);
   const [jobDetailId, setJobDetailId] = useState("");
+  const { t } = useTranslation("translations");
 
   useEffect(() => {
     const getAllJobs = async () => {
@@ -66,7 +68,7 @@ export const Jobs = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <div>Basic Filter</div>
+        <div>{t("navbar.basicfilter")} </div>
         <UISelect
           disabled={false}
           placeholder="Select a Field"
@@ -82,7 +84,7 @@ export const Jobs = () => {
           onChange={(e: any) => setSearchValue(e.target.value)}
           onKeyDown={handleFilter}
           value={searchValue}
-          placeholder="Search"
+          placeholder={t("navbar.search")}
         />
       </div>
       <div className={styles.content}>

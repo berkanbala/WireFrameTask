@@ -1,7 +1,7 @@
-import { Routes, Route, Navigate } from "react-router";
-import { PrivateLayout } from "../layout/privateLayout/privateLayout";
-import { PrivateHome } from "../common/pages/privatePages/privateHome/privateHome";
 import { Jobs } from "../common/pages/privatePages/jobs/jobs";
+import { PrivateHome } from "../common/pages/privatePages/privateHome/privateHome";
+import { PrivateLayout } from "../layout/privateLayout/privateLayout";
+import { Routes, Route, Navigate } from "react-router";
 
 export const PrivateRoutes = () => {
   return (

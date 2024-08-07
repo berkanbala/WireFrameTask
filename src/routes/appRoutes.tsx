@@ -1,6 +1,6 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { AuthGuard } from "./authGuard";
+import { ToastContainer } from "react-toastify";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 export const AppRoutes = () => {
   return (

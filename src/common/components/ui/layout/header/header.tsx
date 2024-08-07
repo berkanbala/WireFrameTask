@@ -1,16 +1,20 @@
 import styles from "./header.module.scss";
-import { useAppContext } from "../../../../context/appContext";
+import Icontr from "../../../../../assets/media/icons/tr.png";
+import Iconen from "../../../../../assets/media/icons/uk.png";
 import classNames from "classnames";
-import { useState } from "react";
 import { Sure } from "../../../../../custom/modals/sure/sure";
+import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAppContext } from "../../../../context/appContext";
+import { useTranslation } from "react-i18next";
 
 export const Header = (props: Props) => {
-  const navigate = useNavigate();
   const { className } = props;
+  const navigate = useNavigate();
   const { modals, auth } = useAppContext();
-  const userId = auth.user.id;
+  const { t, i18n } = useTranslation("translations");
   const [sureModalVisible, setSureModalVisible] = useState(false);
+  const userId = auth.user.id;
 
   const handleLogin = () => {
     modals.setLoginModalVisible(true);
@@ -26,6 +30,7 @@ export const Header = (props: Props) => {
 
   const handleJobList = () => navigate("/jobs");
   const handleHome = () => navigate("/");
+  const changeLanguage = (e: any) => i18n.changeLanguage(e.target.value);
 
   const renderContent = () => {
     if (!userId) {
@@ -35,13 +40,13 @@ export const Header = (props: Props) => {
             className={classNames(styles.link, styles.login)}
             onClick={handleLogin}
           >
-            Login
+            {t("header.login")}
           </div>
           <div
             className={classNames(styles.link, styles.signUp)}
             onClick={handleSignUp}
           >
-            Sign Up
+            {t("header.signup")}
           </div>
         </>
       );
@@ -50,15 +55,36 @@ export const Header = (props: Props) => {
     return (
       <>
         <div className={styles.job} onClick={handleJobList}>
-          Job List
+          {t("navbar.joblist")}
         </div>
         <div className={styles.logout} onClick={handleSignOut}>
-          Logout
+          {t("navbar.logout")}
         </div>
         <div className={styles.user}>
           <div>{auth.user?.email}</div>
           <img src={auth.user?.profileImage} alt="icon" />
         </div>
+        <div className={styles.languages}>
+          <input
+            type="image"
+            value="tr"
+            onClick={changeLanguage}
+            src={Icontr}
+            alt="TR"
+            className={styles.lang}
+            style={{ marginLeft: "10px" }}
+          />
+          <input
+            type="image"
+            value="en"
+            onClick={changeLanguage}
+            src={Iconen}
+            alt="EN"
+            className={styles.lang}
+            style={{ marginLeft: "10px" }}
+          />
+        </div>
+
         {sureModalVisible && <Sure setVisible={setSureModalVisible} />}
       </>
     );

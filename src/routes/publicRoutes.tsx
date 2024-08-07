@@ -1,6 +1,6 @@
-import { Routes, Route, Navigate } from "react-router";
-import { PublicLayout } from "../layout/publicLayout/publicLayout";
 import { PublicHome } from "../common/pages/publicPages/publicHome/publicHome";
+import { PublicLayout } from "../layout/publicLayout/publicLayout";
+import { Routes, Route, Navigate } from "react-router";
 
 export const PublicRoutes = () => {
   return (
