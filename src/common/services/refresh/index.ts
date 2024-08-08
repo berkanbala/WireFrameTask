@@ -1,4 +1,4 @@
-import { wireFrameApiClient } from "../../clients/wireFrameClient";
+import { wireFrameApiClient } from "@common/clients/wireFrameClient";
 
 export const refresh = async () => {
   const refreshToken = window.localStorage.getItem("refreshToken");

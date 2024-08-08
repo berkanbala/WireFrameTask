@@ -1,5 +1,5 @@
-import { wireFrameApiClient } from "../../clients/wireFrameClient";
-import { IJobs, IJobsData } from "../../models/jobs";
+import { wireFrameApiClient } from "@common/clients/wireFrameClient";
+import { IJobs, IJobsData } from "@common/models/jobs";
 
 export const getJobs = async (values: any): Promise<IJobs> => {
   const response = await wireFrameApiClient.get("jobs", { params: values });

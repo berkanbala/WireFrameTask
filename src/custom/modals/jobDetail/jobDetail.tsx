@@ -1,16 +1,18 @@
-import Iconx from "../../../assets/media/icons/x.png";
+import Iconx from "@assets/media/icons/x.png";
 import styles from "./jobDetail.module.scss";
 import { toast } from "react-toastify";
-import { Button } from "../../../common/components/ui/button/button";
+import { Button } from "@common/components/ui/button/button";
 import { KeyWord } from "./keyWord";
-import { Loading } from "../../../common/components/ui/loading/loading";
+import { Loading } from "@common/components/ui/loading/loading";
+import { IJobsData } from "@common/models/jobs";
+import { useAppContext } from "@common/context/appContext";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { getJobById, postJobApply } from "../../../common/services/jobs";
-import { IJobsData } from "../../../common/models/jobs";
+import { getJobById, postJobApply } from "@common/services/jobs";
 
 export const JobDetail = (props: Props) => {
   const { setVisible, id } = props;
+  const { jobs } = useAppContext();
   const { t } = useTranslation("translations");
   const [data, setData] = useState<IJobsData>({} as IJobsData);
   const [loading, setLoading] = useState(false);
@@ -44,6 +46,7 @@ export const JobDetail = (props: Props) => {
       setSubmitLoading(true);
       await postJobApply(id);
       toast.success("Successfully Applied.");
+      jobs.setAppliedJobs([...jobs.appliedJobs, data]);
     } catch (error) {
       console.warn(error);
     } finally {

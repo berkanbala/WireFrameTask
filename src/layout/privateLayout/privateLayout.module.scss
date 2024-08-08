@@ -1,17 +1,29 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+@import "../../assets/styles/variables.scss";
 
-  .header {
-    height: 60px;
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .header {
+      height: 60px;
+    }
+
+    .content {
+      display: flex;
+      min-height: calc(100vh - 60px);
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
-  .content {
-    display: flex;
-    min-height: calc(100vh - 60px);
+  .sideMenu {
+    border-left: $border-20;
     position: relative;
-    flex-direction: column;
-    align-items: center;
   }
 }

@@ -28,6 +28,8 @@
     width: 100%;
     padding: 10px;
     border: $border-30;
+    max-height: calc(100vh - 168px);
+    overflow: auto;
   }
 
   .pagination {

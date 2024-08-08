@@ -1,7 +1,7 @@
 import styles from "./job.module.scss";
-import IconBag from "../../../assets/media/icons/bag.svg";
+import IconBag from "@assets/media/icons/bag.svg";
 import { Tag } from "./tag";
-import { Button } from "../../../common/components/ui/button/button";
+import { Button } from "@common/components/ui/button/button";
 import { useTranslation } from "react-i18next";
 
 export const Job = (props: Props) => {

@@ -1,7 +1,7 @@
 import styles from "./publicHome.module.scss";
-import { Login } from "../../../../custom/modals/login/login";
-import { SignUp } from "../../../../custom/modals/signUp/signUp";
-import { useAppContext } from "../../../context/appContext";
+import { Login } from "@custom/modals/login/login";
+import { SignUp } from "@custom/modals/signUp/signUp";
+import { useAppContext } from "@common/context/appContext";
 import { useTranslation } from "react-i18next";
 export const PublicHome = () => {
   const { modals } = useAppContext();

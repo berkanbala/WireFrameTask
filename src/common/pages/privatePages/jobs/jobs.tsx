@@ -1,16 +1,16 @@
 import styles from "./jobs.module.scss";
-import { Job } from "../../../../custom/components/job/job";
-import { Input } from "../../../components/ui/input/input";
+import { Job } from "@custom/components/job/job";
+import { Input } from "@common/components/ui/input/input";
 import { toast } from "react-toastify";
-import { Loading } from "../../../components/ui/loading/loading";
-import { getJobs } from "../../../services/jobs";
-import { UISelect } from "../../../components/ui/select/select";
-import { JobDetail } from "../../../../custom/modals/jobDetail/jobDetail";
+import { Loading } from "@common/components/ui/loading/loading";
+import { getJobs } from "@common/services/jobs";
+import { UISelect } from "@common/components/ui/select/select";
+import { JobDetail } from "@custom/modals/jobDetail/jobDetail";
 import { Pagination } from "antd";
 import { optionsFilter } from "./helpers";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { IJobsData, IJobsMeta } from "../../../models/jobs";
+import { IJobsData, IJobsMeta } from "@common/models/jobs";
 
 export const Jobs = () => {
   const [optionsValue, setOptionsValue] = useState<null | string>(null);

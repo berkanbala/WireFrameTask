@@ -1,5 +1,5 @@
-import { wireFrameApiClient } from "../../clients/wireFrameClient";
-import { IUser } from "../../models/user";
+import { wireFrameApiClient } from "@common/clients/wireFrameClient";
+import { IUser } from "@common/models/user";
 
 export const login = async (values: IUserValues): Promise<IUser> => {
   const response = await wireFrameApiClient.post("login", values);

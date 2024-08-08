@@ -15,7 +15,7 @@
       position: absolute;
       animation: spin 0.8s linear infinite;
       -webkit-animation: 0.8s spin linear infinite;
-      background-image: url("../../../../assets/media/icons/loading.svg");
+      background-image: url("../assets/media/icons/loading.svg");
       background-size: contain;
       content: "";
       height: 100%;
@@ -28,6 +28,7 @@
       0% {
         transform: rotate(0);
       }
+
       100% {
         transform: rotate(360deg);
       }

@@ -1,11 +1,11 @@
 import styles from "./header.module.scss";
-import Icontr from "../../../../../assets/media/icons/tr.png";
-import Iconen from "../../../../../assets/media/icons/uk.png";
+import Icontr from "@assets/media/icons/tr.png";
+import Iconen from "@assets/media/icons/uk.png";
 import classNames from "classnames";
-import { Sure } from "../../../../../custom/modals/sure/sure";
+import { Sure } from "@custom/modals/sure/sure";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { useAppContext } from "../../../../context/appContext";
+import { useAppContext } from "@common/context/appContext";
 import { useTranslation } from "react-i18next";
 
 export const Header = (props: Props) => {

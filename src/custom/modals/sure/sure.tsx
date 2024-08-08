@@ -1,6 +1,6 @@
-import Iconx from "../../../assets/media/icons/x.png";
+import Iconx from "@assets/media/icons/x.png";
 import styles from "./sure.module.scss";
-import { Button } from "../../../common/components/ui/button/button";
+import { Button } from "@common/components/ui/button/button";
 import { useTranslation } from "react-i18next";
 
 export const Sure = (props: Props) => {
@@ -35,7 +35,6 @@ export const Sure = (props: Props) => {
             />
           </div>
         </div>
-
         <span onClick={handleCloseModal} className={styles.close}>
           <img src={Iconx} alt="x" />
         </span>

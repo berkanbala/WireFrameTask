@@ -1,0 +1,71 @@
+@import "../../../assets/styles/variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 30px;
+  align-items: center;
+
+  span {
+    font-size: 16px;
+  }
+
+  .title {
+    font-weight: 600;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    align-items: center;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .contentWrapper {
+    div {
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+
+    .title {
+      &:first-child {
+        text-align: center;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 136px);
+      overflow: auto;
+
+      .job {
+        display: flex;
+        flex-direction: column;
+        border: $border-20;
+        background-color: $gray-10;
+        padding: 10px;
+        margin-bottom: 20px;
+        gap: 10px;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+
+        div {
+          &:first-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

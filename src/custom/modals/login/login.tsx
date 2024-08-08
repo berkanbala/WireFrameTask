@@ -1,12 +1,12 @@
-import Iconx from "../../../assets/media/icons/x.png";
+import Iconx from "@assets/media/icons/x.png";
 import styles from "./login.module.scss";
-import { Input } from "../../../common/components/ui/input/input";
-import { login } from "../../../common/services/preLogin";
+import { Input } from "@common/components/ui/input/input";
+import { login } from "@common/services/preLogin";
 import { toast } from "react-toastify";
-import { Button } from "../../../common/components/ui/button/button";
+import { Button } from "@common/components/ui/button/button";
 import { useState } from "react";
 import { useFormik } from "formik";
-import { useAppContext } from "../../../common/context/appContext";
+import { useAppContext } from "@common/context/appContext";
 import { useTranslation } from "react-i18next";
 import { getInitialValuesLogin } from "./helpers";
 
@@ -79,7 +79,6 @@ export const Login = () => {
           />
           <Button type="submit" text={t("header.login")} disabled={loading} />
         </form>
-
         <div className={styles.login}>
           {t("modals.newaccount")}
           <span onClick={handleSignUp}> {t("modals.signUp")} </span>
