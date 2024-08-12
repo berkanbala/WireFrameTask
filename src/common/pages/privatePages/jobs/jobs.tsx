@@ -59,8 +59,32 @@ export const Jobs = () => {
           query: searchValue,
         },
       });
+      setLoading(false);
     }
-    setLoading(false);
+  };
+
+  const renderContent = () => {
+    if (jobsData.length == 0) {
+      return <div className={styles.noData}>{t("privatehome.nodata")}</div>;
+    }
+
+    return (
+      <div className={styles.content}>
+        {jobsData.map((data: IJobsData) => (
+          <Job
+            description={data.description}
+            keywords={data.keywords}
+            location={data.location}
+            name={`${data.name} - ${data.companyName}`}
+            salary={data.salary}
+            key={data.id}
+            setId={setJobDetailId}
+            id={data.id}
+            setVisible={setJobDetailVisible}
+          />
+        ))}
+      </div>
+    );
   };
 
   if (!loading) {
@@ -89,21 +113,7 @@ export const Jobs = () => {
           placeholder={t("navbar.search")}
         />
       </div>
-      <div className={styles.content}>
-        {jobsData.map((data: IJobsData) => (
-          <Job
-            description={data.description}
-            keywords={data.keywords}
-            location={data.location}
-            name={`${data.name} - ${data.companyName}`}
-            salary={data.salary}
-            key={data.id}
-            setId={setJobDetailId}
-            id={data.id}
-            setVisible={setJobDetailVisible}
-          />
-        ))}
-      </div>
+      {renderContent()}
       <Pagination
         {...jobsPagination}
         onChange={(page) => {
