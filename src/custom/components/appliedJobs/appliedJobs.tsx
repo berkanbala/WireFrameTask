@@ -15,12 +15,20 @@ export const AppliedJobs = (props: Props) => {
 
   useEffect(() => {
     const getAppliedJobs = async () => {
+      // getAppliedJobs fonksiyonu, kullanıcının başvurduğu iş ilanlarının ID'lerini kullanarak her bir iş ilanı için API'ye istek yapar.
       const tempArr: IJobsData[] = [];
+      // Gelen yanıtları geçici bir diziye (tempArr) ekler.
       auth.userInfo.user.appliedJobs?.forEach(async (id: string) => {
+        // ID'ler üzerinden forEach döngüsü ile tek tek işlem yapılır.
+        // Bu döngü, her bir iş ilanı ID'si için ayrı bir asenkron fonksiyon çalıştırır
         try {
           const response = await getJobById(id);
+          // her bir ID için getJobById adlı bir fonksiyon çağrılır. Bu fonksiyon, verilen ID'ye karşılık gelen iş ilanı bilgilerini API'den almak için kullanılır.
+          // await ifadesi, API'den gelen yanıtı bekler ve response değişkenine atar.
           tempArr.push(response);
+          // API'den alınan her bir iş ilanı yanıtı tempArr dizisine eklenir. Bu dizide, kullanıcı tarafından başvurulmuş tüm iş ilanları biriktirilir.
           jobs.setAppliedJobs([...tempArr]);
+          // Bu diziyi daha sonra jobs.setAppliedJobs ile global duruma kaydeder. Bu, tüm iş ilanı verilerinin uygulama genelinde erişilebilir olmasını sağlar.
         } catch (error) {
           console.warn(error);
         }
@@ -30,6 +38,7 @@ export const AppliedJobs = (props: Props) => {
     const fetchData = async () => {
       await Promise.allSettled([getAppliedJobs()]);
       setLoading(true);
+      // fetchData fonksiyonu, bu işlemin tamamlanmasını bekler ve ardından yükleme durumunu true olarak ayarlar, yani veriler artık yüklenmiş demektir.
     };
 
     fetchData();
@@ -37,6 +46,7 @@ export const AppliedJobs = (props: Props) => {
 
   if (!loading) {
     return <Loading />;
+    // Eğer veriler hala yükleniyorsa (loading === false), Loading bileşeni render edilir ve kullanıcıya bir yükleme animasyonu gösterilir.
   }
 
   return (

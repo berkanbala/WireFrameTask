@@ -32,6 +32,14 @@
     overflow: auto;
   }
 
+  .noData {
+    display: flex;
+    font-weight: 1000;
+    justify-content: center;
+    align-items: center;
+    margin: 40.54%;
+  }
+
   .pagination {
     display: flex;
     justify-content: center;

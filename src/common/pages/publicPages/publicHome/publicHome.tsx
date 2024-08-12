@@ -13,10 +13,10 @@ export const PublicHome = () => {
         <h2>{t("publichome.bestpositioneverfound")}</h2>
         <p>{t("publichome.lorem")}</p>
       </div>
-
       {modals.loginModalVisible && <Login />}
-
+      {/* başlangıç değeri true ise Login bileşeni gösterilir */}
       {modals.signUpModalVisible && <SignUp />}
+      {/* başlangıç değeri true ise SignUp bileşeni gösterilir */}
     </div>
   );
 };

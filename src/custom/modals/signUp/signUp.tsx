@@ -14,17 +14,22 @@ export const SignUp = () => {
   const { modals } = useAppContext();
   const { t } = useTranslation("translations");
   const [loading, setLoading] = useState(false);
+  // loading: Kayıt işlemi sırasında yüklenme durumunu izlemek için kullanılan state.
 
   const { handleSubmit, handleChange, values } = useFormik({
+    // Formik, form değerlerini (values) ve değişiklikleri (handleChange) yönetir ve form gönderildiğinde (handleSubmit) kayıt işlemini gerçekleştirir.
     initialValues: getInitialValuesLogin(),
+    // Formun başlangıç değerleri getInitialValuesLogin() fonksiyonundan alınır.
     onSubmit: async (values) => {
       try {
         if (values.email == "" || values.password == "") {
+          // E-posta veya şifre boşsa, hata mesajı gösterilir.
           toast.error("Fill in all fields.");
           return;
         }
         setLoading(true);
         await signUp(values);
+        // loading durumu başlatılır ve signUp fonksiyonu çağrılır.
         toast.success("You have successfully registered.");
       } catch (error: any) {
         console.warn(error);
@@ -36,9 +41,12 @@ export const SignUp = () => {
   });
 
   const handleCloseModal = () => modals.setSignUpModalVisible(false);
+  // handleSignIn: Kullanıcıyı giriş modalına yönlendirir. Eğer loading durumu aktifse, bu işlem engellenir.
 
   const handleSignIn = () => {
     if (loading) {
+      // Fonksiyon, ilk olarak loading adında bir durumu kontrol ediyor.
+      // Eğer loading durumu true ise (yani, şu anda bir yükleme işlemi devam ediyorsa), fonksiyon hiçbir şey yapmadan sona eriyor (return;).
       return;
     }
 

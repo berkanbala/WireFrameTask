@@ -33,7 +33,9 @@ export const Header = (props: Props) => {
   const changeLanguage = (e: any) => i18n.changeLanguage(e.target.value);
 
   const renderContent = () => {
+    // Bu fonksiyon, kullanıcının oturum açıp açmadığına göre üst menüde gösterilecek içerikleri belirler.
     if (!userId) {
+      // Oturum Açılmadıysa, handleLogin ve handleSignUp butonları gösterilir.
       return (
         <>
           <div
@@ -54,6 +56,7 @@ export const Header = (props: Props) => {
 
     return (
       <>
+        {/* Oturum açıldıysa handleJobList, handleSignOut ve kullanıcı bilgilerini gösteren butonlar görüntülenir. */}
         <div className={styles.job} onClick={handleJobList}>
           {t("navbar.joblist")}
         </div>
@@ -64,8 +67,8 @@ export const Header = (props: Props) => {
           <div>{auth.userInfo?.user?.email}</div>
           <img src={auth.userInfo?.user?.profileImage} alt="icon" />
         </div>
-
         {sureModalVisible && <Sure setVisible={setSureModalVisible} />}
+        {/* Eğer sureModalVisible true ise, Sure modali görüntülenir. */}
       </>
     );
   };

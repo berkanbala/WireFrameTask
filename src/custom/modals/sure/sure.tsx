@@ -9,9 +9,12 @@ export const Sure = (props: Props) => {
 
   const handleCloseModal = () => setVisible(false);
   const handleLogout = () => {
+    // handleLogout: Bu fonksiyon, çıkış yapmak için kullanılır.
     window.localStorage.clear();
+    // Öncelikle, kullanıcının tarayıcısındaki localStorage temizlenir.
     setVisible(false);
     window.location.href = "/";
+    // Daha sonra modal kapatılır ve kullanıcı anasayfaya yönlendirilir.
   };
 
   return (

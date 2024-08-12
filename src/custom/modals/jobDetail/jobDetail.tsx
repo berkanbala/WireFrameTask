@@ -20,21 +20,26 @@ export const JobDetail = (props: Props) => {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-
+    // Bileşen yüklendiğinde, sayfanın kaydırılabilirliğini devre dışı bırakır.
     return () => {
       document.body.style.overflow = null as any;
+      // Bileşen kaldırıldığında, kaydırılabilirliği geri yükler.
     };
   }, []);
 
   useEffect(() => {
     const getJobDetail = async () => {
+      // Bileşen yüklendiğinde, getJobDetail adlı asenkron bir fonksiyon çalışır.
       try {
         const response = await getJobById(id);
+        // Bu fonksiyon: getJobById fonksiyonunu çağırarak iş ilanı detaylarını alır.
         setData(response);
+        // setData durumuna kaydeder.
       } catch (error) {
         console.warn(error);
       } finally {
         setLoading(true);
+        // Son olarak, setLoading(true) ile yüklemenin tamamlandığını belirtir.
       }
     };
 
@@ -42,22 +47,30 @@ export const JobDetail = (props: Props) => {
   }, []);
 
   const handleApply = async () => {
+    // Kullanıcı "Başvur" butonuna tıkladığında çalışır.
     try {
       setSubmitLoading(true);
       await postJobApply(id);
+      // postJobApply fonksiyonunu çağırarak iş ilanına başvuru yapar.
       toast.success("Successfully Applied.");
       jobs.setAppliedJobs([...jobs.appliedJobs, data]);
+      // başvurulan iş ilanını jobs.appliedJobs listesine ekler.
     } catch (error) {
       console.warn(error);
     } finally {
       setSubmitLoading(false);
       handleCloseModal();
+      // Son olarak, submitLoading durumunu false yapar ve modalı kapatır.
     }
   };
 
   const handleCloseModal = () => setVisible(false);
 
   const renderContent = () => {
+    // Bileşenin içerik kısmını render eder.
+    // Eğer loading durumu false ise, yükleme ekranını gösterir (<Loading />).
+    // Veriler yüklendiyse, iş ilanı detaylarını (data) ve iki buton (İptal ve Başvur) gösterir.
+
     if (!loading) {
       return <Loading />;
     }

@@ -16,22 +16,30 @@ export const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const { handleSubmit, handleChange, values, resetForm } = useFormik({
+    // Formik, form değerlerini yönetir (values), form değişikliklerini işler (handleChange), ve form gönderildiğinde (handleSubmit) giriş işlemini gerçekleştirir.
     initialValues: getInitialValuesLogin(),
+    // Formun başlangıç değerleri getInitialValuesLogin() fonksiyonundan alınır.
     onSubmit: async (values) => {
       try {
         if (values.email == "" || values.password == "") {
+          // Eğer e-posta veya şifre boşsa, hata mesajı gösterilir.
           toast.error("Fill in all fields.");
           return;
         }
 
         setLoading(true);
         const response = await login(values);
+        // login fonksiyonu çağrılır.
         window.localStorage.setItem("accessToken", response.accessToken);
         window.localStorage.setItem("refreshToken", response.refreshToken);
+        // Başarılı giriş durumunda, alınan accessToken ve refreshToken localStorage'a kaydedilir,
         auth.setUserInfo(response);
+        // kullanıcı bilgileri güncellenir
         toast.success("You've made a successful entry.");
+        // başarılı giriş bildirimi gösterilir.
         resetForm();
         window.location.href = "/";
+        // Giriş başarılıysa, ana sayfaya yönlendirilir.
       } catch (error: any) {
         console.warn(error);
         toast.error(error.response.data.message);
@@ -39,6 +47,7 @@ export const Login = () => {
         setTimeout(() => {
           setLoading(false);
         }, 500);
+        // 0.5 saniye sonra loading durumunu false çekiyoruz. Yüklemenin bittiğini belirtmek için.
       }
     },
   });

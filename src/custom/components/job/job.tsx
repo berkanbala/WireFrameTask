@@ -46,8 +46,11 @@ export const Job = (props: Props) => {
           text={t("modals.detail")}
           disabled={false}
           onClick={() => {
+            // Detay Düğmesi: Kullanıcıya iş ilanının detaylarını gösteren bir düğme sunar. Kullanıcı düğmeye tıkladığında:
             setVisible(true);
+            // setVisible(true) ile modal görünür hale getirilir.
             setId(id);
+            // setId(id) ile seçilen iş ilanının ID'si ayarlanır.
           }}
         />
       </div>
